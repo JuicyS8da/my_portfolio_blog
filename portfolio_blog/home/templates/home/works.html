@@ -1,0 +1,79 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% load cache %}
+
+{% block css %}
+<link href="{% static '/vendor/css/works.css' %}" rel="stylesheet">
+<link href="{% static '/vendor/css/paginator.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+<main>
+    {% cache 604800 works %}
+      <section class="works">
+        <div class="container">
+            <h1 class="works-title">Works</h1>
+            {% for w in works %}
+              <div class="works__work-item">
+                  <a href="{{ w.get_absolute_url }}" class="works__img">
+                      <picture>
+                          <img class="works__img-item" src="{{ w.photo.url }}">
+                      </picture>
+                  </a>
+                  <div class="works__antiphoto">
+                      <a href="{{ w.get_absolute_url }}" class="works__title">{{ w.title }}</a>
+                      <div class="works__info">
+                          <div class="works__year">{{ w.time_create|date:'Y' }}</div>
+                          <div class="post__tags">
+                              {% for t in w.tags.all %}
+                                <a class="post__tag" href="{{ t.get_absolute_url }}">{{t.name}}{% if not forloop.last %},{% endif %}</a>
+                              {% endfor %}
+                            </div>
+                      </div>
+                      <div class="works__desc text">{{ w.short_desc|safe|linebreaks|truncatewords:20 }}</div>
+                  </div>
+              </div>
+            <div class="works__separator"></div>
+            {% endfor %}
+                <div class="pagination">
+              <ul class="pagination__list">
+                  {% if page_obj.number > 1 %}
+                <li class="pagination__list-item">
+                  <a class="pagination__list-href" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                </li>
+                <li class="pagination__list-item">
+                  <a class="pagination__list-href" href="?page=1">1</a>
+                </li>
+                <li class="pagination__list-item">
+                  <a class="pagination__list-href">...</a>
+                </li>
+                <li class="pagination__list-item">
+                  <a class="pagination__list-href" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+                </li>
+                  {% endif %}
+                <li class="pagination__list-item">
+                  <a class="pagination__list-href selected" href="?page={{ page_obj.number }}">{{ page_obj.number }}</a>
+                </li>
+                  {% if page_obj.has_next %}
+                <li class="pagination__list-item">
+                  <a class="pagination__list-href" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                </li>
+                <li class="pagination__list-item">
+                  <a class="pagination__list-href">...</a>
+                </li>
+                  {% endif %}
+                  {% if page_obj.number != page_obj.paginator.num_pages %}
+                <li class="pagination__list-item">
+                  <a class="pagination__list-href" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                </li>
+                <li class="pagination__list-item">
+                  <a class="pagination__list-href" href="?page={{ page_obj.next_page_number }}">Next</a>
+                </li>
+                  {% endif %}
+              </ul>
+            </div>
+        </div>
+    </section>
+    {% endcache %}
+    </main>
+{% endblock %}

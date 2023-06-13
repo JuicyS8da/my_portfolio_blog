@@ -1,0 +1,207 @@
+@import 'fonts.css';
+@import 'popup.css';
+
+body {
+  color: #23243D;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  font-family: Heebo, sans-serif;
+}
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+}
+main {
+  flex: 1 1 auto;
+}
+.container {
+  width: 682px;
+  max-width: 87%; /*87% норм должно быть*/
+  margin: 0 auto;
+  height: 100%;
+}
+@media (max-width: 700px) {
+  .container {
+    width: 354px;
+  }
+}
+.text {
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--primary_color)
+}
+.header_fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  max-width: 100%;
+}
+.header {
+  width: 100%;
+  background: #fff;
+  padding: 19.5px 0;
+  z-index: 100;
+}
+.header__nav {
+  padding: 12px 0;
+}
+.header__nav-list {
+  display: flex;
+  justify-content: center;
+}
+.header__nav-item {
+  margin-right: 40px;
+}
+.header__nav-item-last {
+  margin-right: 0px;
+}
+.header__nav-link {
+  font-weight: 500;
+  font-size: 20px;
+}
+.header__nav-link:hover {
+  color:#FF6464;
+  transition: .3s;
+}
+
+.blog {
+  margin-top: 78px;
+}
+.blog-title{
+  font-weight: 700;
+  font-size: 44px;
+  max-width: 506px;
+  line-height: 60px;
+  padding: 10px 0px;
+  margin: 10px 0px;
+}
+@media (max-width: 700px) {
+  .blog-title {
+    font-size: 32px;
+    margin-top: 34px;
+    line-height: 40px;
+    display: flex;
+  }
+}
+.blog__post-item:first-of-type {
+  margin-top: 15px;
+}
+
+.blog__post-item {
+  margin-top: 40px;
+  flex: 0 0 856px;
+  min-height: 132px;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  /* box-shadow: 0px 0px 1px #E0E0E0 ; */
+}
+@media (max-width: 700px) {
+  .blog__post-item {
+    box-sizing: border-box;
+    width: auto;
+    max-width: 100%;
+    flex-direction: column;
+    display: block;
+    height: auto;
+  }
+}
+
+.blog__item-title {
+  margin: 0; /* Убираем внешний отступ */
+  -webkit-line-clamp: 1; /* Число отображаемых строк */
+  display: -webkit-box; /* Включаем флексбоксы */
+  -webkit-box-orient: vertical; /* Вертикальная ориентация */
+  overflow: hidden;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: calc(44 / 30 * 100%);
+}
+@media (max-width: 700px) {
+  .blog__item-title {
+    font-size: 24px;
+  }
+}
+.blog__item-title:hover {
+  text-decoration: underline;
+}
+.blog__content {
+  flex: 1 1 auto;
+}
+.blog__item-info {
+  margin-top: 15px;
+  display: flex;
+  font-size: 20px;
+  align-items: flex-end;
+}
+@media (max-width: 700px) {
+  .blog__item-info {
+  font-size: 16px;
+  } 
+}
+.blog__item-date {
+  margin-right: 26px;
+}
+.blog__item-separator {
+  margin-right: 26px;
+}
+.blog__item-text {
+  padding: 15px 0;
+}
+.blog__separator {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  height: 1px;
+  background-color: #E0E0E0;
+}
+.blog__tags {
+  margin: 0; /* Убираем внешний отступ */
+  -webkit-line-clamp: 1; /* Число отображаемых строк */
+  display: -webkit-box; /* Включаем флексбоксы */
+  -webkit-box-orient: vertical; /* Вертикальная ориентация */
+  overflow: hidden;
+  color: #8695A4;
+  display: flex;
+  align-items: flex-end;
+}
+.blog__tag {
+  font-size: 20px;
+  padding-right: 5px;
+  cursor: pointer;
+}
+.blog__tag:hover {
+  text-decoration: underline;
+}
+@media (max-width: 700px) {
+  .blog__item-tags {
+    font-size: 16px;
+  }
+}
+.footer {
+  margin-top: 43px;
+  display: flex;
+  justify-content: center;
+  height: 182px;
+}
+.footer-container {
+  width: 232px;
+}
+.footer__socials {
+  margin-top: 51px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer__copyright {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+  font-size: 14px;
+}

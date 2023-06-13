@@ -1,0 +1,148 @@
+@import 'fonts.css';
+@import 'popup.css';
+
+body {
+  color: #23243D;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  font-family: Heebo, sans-serif;
+}
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+}
+main {
+  flex: 1 1 auto;
+}
+.container {
+  width: 682px;
+  max-width: 87%; /*87% норм должно быть*/
+  margin: 0 auto;
+  height: 100%;
+}
+@media (max-width: 700px) {
+  .container {
+    width: 354px;
+  }
+}
+.text {
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--primary_color)
+}
+.header_fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  max-width: 100%;
+}
+.header {
+  width: 100%;
+  background: #fff;
+  padding: 19.5px 0;
+  z-index: 100;
+}
+.header__nav {
+  padding: 12px 0;
+}
+.header__nav-list {
+  display: flex;
+  justify-content: center;
+}
+.header__nav-item {
+  margin-right: 40px;
+}
+.header__nav-item-last {
+  margin-right: 0px;
+}
+.header__nav-link {
+  font-weight: 500;
+  font-size: 20px;
+}
+.header__nav-link:hover {
+  color:#FF6464;
+  transition: .3s;
+}
+.post {
+  margin-top: 70px;
+}
+.post-title {
+  font-size: 34px;
+  font-weight: 700;
+  padding: 5px 0;
+}
+.post-title h1 {
+  font-height: 20px;
+}
+.post__info {
+  padding: 15px 0;
+  display: flex;
+  align-items:center;
+}
+.post__year {
+  background-color: #FF7C7C;
+  border-radius: 16px;
+  height: 25px;
+  width: 62px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 18px;
+  margin-right: 26px;
+}
+@media (max-width: 700px) {
+  .post__year {
+    font-size: 16px;
+  }
+}
+
+.post__tags {
+  display: flex;
+  align-items: flex-end;
+}
+
+.post__tag {
+  font-size: 20px;
+  padding-right: 5px;
+  cursor: pointer;
+}
+.post__tag:hover {
+  text-decoration: underline;
+}
+@media (max-width: 700px) {
+  .post__tag {
+    font-size: 16px;
+  }
+}
+.content {
+  margin-top: 25px;
+}
+
+.footer {
+  margin-top: 83px;
+  display: flex;
+  justify-content: center;
+  height: 182px;
+}
+.footer-container {
+  width: 232px;
+}
+.footer__socials {
+  margin-top: 51px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer__copyright {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+  font-size: 14px;
+}

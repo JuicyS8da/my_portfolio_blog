@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <link rel="shortcut icon" href="tab-icon.ico" type="image/x-icon">-->
+    <link href="{% static '/vendor/css/reset.css' %}" rel="stylesheet">
+    {% block css %} {% endblock %}
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <nav class="header__nav">
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item">
+                            <a class="header__nav-link" href="{% url 'index' %}">Home</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a class="header__nav-link" href="{% url 'blog' %}">Blog</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a class="header__nav-link" href="{% url 'works' %}">Works</a>
+                        </li>
+                        <li class="header__nav-item-last">
+                            <a class="header__nav-link popup-link">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div id="popup" class="popup">
+                    <div class="popup__body">
+                        <div class="popup__content">
+                            <img src="{% static 'vendor/img/icons/x-button-icon-20.jpg' %}" class="popup__close">
+                            <div class="popup__title">Contact</div>
+                            <div class="popup__text text">
+                                <div class="popup__contact-item">
+                                    <p class="text">Email: <a class="popup__emaillink">alzaharov20@mail.ru</a></p>
+                                    <button class="popup__emailcopybtn"><img class="popup__copyicon" src="{% static 'vendor/img/icons/copy-icon.png'%}"></button>
+                                </div>
+                                <p id="email-copy-check" class="popup__copy-check">Copied!</p>
+                                <div class="popup__contact-item">
+                                    <p class="text">Telegram: <a class="popup__telegramlink">@MEMHblN_chel</a></p>
+                                    <button class="popup__telegramcopybtn"><img class="popup__copyicon" src="{% static 'vendor/img/icons/copy-icon.png'%}"></button>
+                                </div>
+                                <p id="telegram-copy-check" class="popup__copy-check">Copied!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        {% block main %} {% endblock %}
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer__socials">
+                    <a class="footer__href-facebook" href="#">
+                        <img class="footer__icon-facebook" src="{% static 'vendor/img/social_icons/fb.svg' %}" alt="facebook-icon">
+                    </a>
+                    <a class="footer__href-instagram" href="#">
+                        <img class="footer__icon-instagram" src="{% static 'vendor/img/social_icons/insta.svg' %}" alt="instagram-icon">
+                    </a>
+                    <a class="footer__href-twitter" href="#">
+                        <img class="footer__icon-twitter" src="{% static 'vendor/img/social_icons/twitter.svg' %}" alt="twitter-icon">
+                    </a>
+                    <a class="footer__href-linkedin" href="#">
+                        <img class="footer__icon-linkedin" src="{% static 'vendor/img/social_icons/linkedin.svg' %}" alt="linkedin-icon">
+                    </a>
+                </div>
+                <h5 class="footer__copyright">Copyright ©2023 All rights reserved</h5>
+            </div>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static '/vendor/js/scripts.js' %}"></script>
+    <script src="{% static '/vendor/js/popup.js' %}"></script>
+</body>
+</html>

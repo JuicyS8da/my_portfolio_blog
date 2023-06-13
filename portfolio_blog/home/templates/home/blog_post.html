@@ -1,0 +1,30 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block css %}
+<link href="{% static '/vendor/css/blog_post.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static '/vendor/css/content-styles.css' %}" type="text/css">
+{% endblock %}
+
+{% block main %}
+    <main>
+      <div class="container">
+        <div class="post">
+          <h1 class="post-title">{{post.title}}</h1>
+          <div class="post__info">
+            <div class="post__year">{{post.time_create|date:'Y'}}</div>
+            <div class="post__tags">
+              {% for t in post.tags.all %}
+                <a class="post__tag" href="{{ t.get_absolute_url }}">{{t.name}}{% if not forloop.last %},{% endif %}</a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="ck-content">
+            {{post.content|safe}}
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock %}

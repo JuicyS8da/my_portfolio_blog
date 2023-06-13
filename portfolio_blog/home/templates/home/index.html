@@ -1,0 +1,82 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% load cache %}
+
+{% block css %}
+<link href="{% static '/vendor/css/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+        <main>
+            <div class="container">
+                <section class="hero">
+                    <div class="about">
+                        <div class="about__content">
+                            <h1 class="about__title">Hi, I am Alex,<br>Junior Web-Developer</h1>
+                            <p class="about__desc text">I am 4th year college student majoring in programming in computer systems. This site was made all by myself (except design). if you are interested in how I can be useful to your team - click down below!</p>
+                        </div>
+                        <picture class="about__photo">
+                            <img class="about__photo-item" src="{% static 'vendor/img/Alex.jpg' %}" alt="john">
+                        </picture>
+                    </div>
+                    <div class="about__button_container">
+                        <button class="about__button">Download Resume</button>
+                    </div>
+                </section>
+            </div>
+            <section class="posts">
+                <div class="container">
+                    <div class="upside">
+                        <h3 class="posts__title">Recent posts</h3>
+                        <a href="{% url 'blog' %}" class="posts__href">View all</a>
+                    </div
+                    <div class="post">
+                        <div class="post__list">
+                            {% for p in posts %}
+                            <article class="post__list-item">
+                                <a href="{{ p.get_absolute_url }}" class="post__item-title">{{ p.title }}</a>
+                                <div class="post__item-info">
+                                    <p class="post__item-date">{{ p.time_create|date:'j M Y' }}</p>
+                                    <img class="post__item-separator" src="{% static 'vendor/img/Vector 1.svg' %}" alt="|">
+                                    <div class="post__tags">
+                                      {% for tag in p.tags.all %}
+                                        <a class="post__tag" href="{{ tag.get_absolute_url }}">{{tag.name}}{% if not forloop.last %},{% endif %}</a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="post__item-text text">{{ p.short_desc|safe|linebreaks|truncatewords:50 }}</div>
+                            </article>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="works">
+                <div class="container">
+                    <h3 class="featured-works">Featured works</h3>
+                    {% for w in works %}
+                        <div class="works__work-item">
+                            <a href="{{ w.get_absolute_url }}" class="works__img">
+                                <picture>
+                                    <img class="works__img-item" src="{{ w.photo.url }}">
+                                </picture>
+                            </a>
+                            <div class="works__antiphoto">
+                                <a href="{{ w.get_absolute_url }}" class="works__title">{{ w.title }}</a>
+                                <div class="works__info">
+                                    <div class="works__year">{{ w.time_create|date:'Y' }}</div>
+                                    <div class="work__tags">
+                                      {% for tag in w.tags.all %}
+                                        <a class="work__tag" href="{{ tag.get_absolute_url }}">{{tag.name}}{% if not forloop.last %},{% endif %}</a>
+                                      {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="works__desc text">{{ w.short_desc|safe }}</div>
+                            </div>
+                        </div>
+                        <div class="works__separator"></div>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+{% endblock %}
