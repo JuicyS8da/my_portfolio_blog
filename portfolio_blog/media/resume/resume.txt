@@ -1,0 +1,15 @@
+Hello !
+
+My name is Alexey, I am 18 years old. I am 4th year college student majoring in programming in computer systems.
+
+Information about me:
+- Have experience with Django
+- Have experience with aiogram and telebot for telegram bots
+- I know how to type in HTML, CSS, JS (a little JQuery, but now I'm learning React along the way)
+- Knowledge of git
+- Ability to work in the Linux console
+
+Examples of my work on GitHub - https://github.com/JuicyS8da
+
+I will be very glad to responce.
+Thank you for your attention.

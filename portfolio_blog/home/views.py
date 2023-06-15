@@ -7,6 +7,7 @@ def index(request):
     context = {
         'posts': Post.objects.filter(is_published=True)[:2],
         'works': Work.objects.filter(is_published=True)[:3],
+        'resume': Resume.objects.all().last(),
         'title': 'Homepage',
     }
 
