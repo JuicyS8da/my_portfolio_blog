@@ -98,3 +98,13 @@ class Resume(models.Model):
         return self.file.name
     class Meta:
         verbose_name = 'Resume'
+        verbose_name_plural = 'Resumes'
+
+class About(models.Model):
+    greet = models.TextField(verbose_name='greet (HTML compatible):')
+    desc = models.TextField(verbose_name='desc (HTML compatible):')
+    photo = models.ImageField(upload_to='about/', verbose_name='photo (better pick square-sized like 768x768):')
+
+    class Meta:
+        verbose_name = 'About'
+        verbose_name_plural = 'About'

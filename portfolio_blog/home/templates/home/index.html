@@ -12,11 +12,11 @@
                 <section class="hero">
                     <div class="about">
                         <div class="about__content">
-                            <h1 class="about__title">Hi, I am Alex,<br>Junior Web-Developer</h1>
-                            <p class="about__desc text">I am 4th year college student majoring in programming in computer systems. This site was made all by myself (except design). if you are interested in how I can be useful to your team - click down below!</p>
+                            <h1 class="about__title">{{ about.greet|safe }}</h1>
+                            <p class="about__desc text">{{ about.desc|safe }}</p>
                         </div>
                         <picture class="about__photo">
-                            <img class="about__photo-item" src="{% static 'vendor/img/Alex.jpg' %}" alt="john">
+                            <img class="about__photo-item" src="{{ about.photo.url }}" alt="Alex">
                         </picture>
                     </div>
                     <div class="about__button_container">
