@@ -1,6 +1,5 @@
 {% extends 'home/base.html' %}
 {% load static %}
-{% load cache %}
 
 {% block css %}
 <link href="{% static '/vendor/css/blog.css' %}" rel="stylesheet">
@@ -9,7 +8,6 @@
 
 {% block main %}
 <main>
-    {% cache 604800 blog %}
       <section class="blog">
         <div class="container">
             <h1 class="blog-title">Blog</h1>
@@ -70,6 +68,5 @@
           </ul>
         </div>
     </section>
-    {% endcache %}
     </main>
 {% endblock %}
