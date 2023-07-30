@@ -1,7 +1,7 @@
 # my_portfolio_blog
 Both backend and frontend were made by me
 
-If you haven't installed python yet, here is an instruction on how to set up everything correctly <br>
+If you haven't installed python yet, here is an instruction on how to set up everything correctly: <br>
 https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-programming-environment-on-an-ubuntu-20-04-server
 
 How to create a virtual python environment:
