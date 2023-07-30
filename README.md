@@ -1,5 +1,5 @@
 # my_portfolio_blog
-Both backend and frontend was made by me
+Both backend and frontend were made by me
 
 How to create a virtual python environment:
 
